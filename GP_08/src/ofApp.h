@@ -31,5 +31,6 @@ public:
     int width;
     int height;
     
+    
     static const int PARTICLE_NUM = 100;
 };
