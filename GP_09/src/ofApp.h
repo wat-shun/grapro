@@ -1,7 +1,6 @@
 #pragma once
 
 #include "ofMain.h"
-#include "MSAPhysics3D.h"
 
 class ofApp : public ofBaseApp{
 
@@ -20,21 +19,14 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    void addParticle();
-    
-    void shotBall(int dir);//0123:URDL
-    void drawWorldEdge();
-    
-    ofVec3f minWorldSize,maxWorldSize;
-    
-    msa::physics::World3D physics;
+    ofVbo vbo;
     ofEasyCam camera;
-    ofLight light;
-    ofSpherePrimitive sphere;
     
-    int width;
-    int height;
+    vector<ofVec3f> points;
+    vector<ofIndexType> points_index;
+    vector<ofIndexType> edges_index;
+    vector<ofFloatColor> colors;
     
-    
-    static const int PARTICLE_NUM = 800;
+    int point_counter;
+    float point_margin;
 };
