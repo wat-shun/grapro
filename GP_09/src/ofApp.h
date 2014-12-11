@@ -1,7 +1,8 @@
 #pragma once
-
 #include "ofMain.h"
 
+#define POINTS 100
+#define MARGIN 0.1
 class ofApp : public ofBaseApp{
 
 public:
@@ -19,6 +20,8 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
+    void initBoard();
+    
     ofVbo vbo;
     ofEasyCam camera;
     
@@ -27,6 +30,10 @@ public:
     vector<ofIndexType> edges_index;
     vector<ofFloatColor> colors;
     
-    int point_counter;
+    bool isAlive[POINTS][POINTS];
+    int generation;
     float point_margin;
+    
+    int FPS = 10;
+    bool isWork;
 };
